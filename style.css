@@ -1,0 +1,70 @@
+body {
+    font-family: Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    height: 300vh;
+}
+
+.parent {
+    background-color: gray;
+    margin: 20px;
+    padding: 20px;
+    position: relative;
+    height: 150vh;
+}
+
+.child {
+    margin: 0px 20px;
+    padding: 20px;
+}
+
+.child:nth-of-type(1) {
+    background-color: darkkhaki;
+}
+/* 
+- Position is set as static by default. 
+- It means it follow the other elements in the document flow. 
+*/
+
+.child:nth-of-type(2) {
+    background-color: blue;
+    position: relative;
+    top: 300px;
+    /* 
+    - Position relative is same as static, but it will allow to change the top, right, bottom or left of this element. 
+    - However, the flow of the document still same as before. 
+    */
+}
+
+.child:nth-of-type(3) {
+    background-color: crimson;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    /* 
+    - Position absolute can make the entire document forget that element, just pretends like it was completely deleted. 
+    - Simply, it remove the element from document flow. 
+    - In addition, it is useful when the element should be stick in specific position but do not want anything else move around it. 
+    - When adjusting the absolute element (top, right, bottom, left), it will based on the parent element (if the parent element is relative), 
+    - Or it will based on the entire html document (if the parent element is static)
+    */
+}
+
+.child:nth-of-type(4) {
+    background-color: greenyellow;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0 20px 20px 0;
+    /* 
+    - Position fixed is make the element fixed positioned based on the entire html document
+    */
+}
+
+.child:nth-of-type(5) {
+    background-color: darkorchid;
+    position: sticky;
+    top: 0;
+    /* 
+    - Position sticky is just relative position, but if the top, right, bottom or left reached certain point (like example above), it will be fixed, until the end of the parent's height.
+    */
+}
